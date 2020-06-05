@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>  
+    div.padded {  
+      padding-top: 0px;  
+      padding-right: 100px;  
+      padding-bottom: 0.25in;  
+      padding-left: 100px;  
+    }  
+  </style> 
+<title>Aakash Parikh  |  CS 184 3-2</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body>
+<br />
+<h1 align="middle">Assignment 3-2: PathTracer part 2 </h1>
+    <h2 align="middle">Aakash Parikh</h2>
+
+    <div class="padded">
+    <p>This project was an extension of the pathtracer we implemented previously in order to account for various types of materials, lighting and
+        depth of field camera effects. This allows us to render much more interesting images. We will discuss adding reflection and refraction for
+        glass and mirror materials, implementation of a microfacet model, and adding a depth of field effect using the thin lens model.
+    </p>
+
+
+
+    <h2 align="middle">Part 1: Mirror and Glass Materials</h2>
+
+        <p>In this first part, we add functionality for certain properties that pertain to glass and mirror materials. Glass both reflects and refracts light, so we need
+            to account for these. A mirrored surface will only have reflection.
+            We first have a helper function to perform reflection with respect to the normal. This makes it convenient to just negate the directions in x,y.
+            For the mirror, we can implement reflection simply by returning a cosine weighted spectrum.
+            For the glass, we also need to account for refraction. We begin by checking if we are entering or exiting the glass. If we are entering the glass,
+            we will also check for total internal reflection. If this is the case we return a weighted reflectance. Otherwise we return a weighted transmittence.
+            Note that we simplify the modeling by using the Schilick's approximation.
+        </p>
+
+        <p>This image which consists of a mirror and a glass ball show how the two properties behave over various max ray depths. A few notable
+            comments: for max ray of 0 we only see the overhead light, and for max ray of 1, no reflection/refraction is computed on the spheres so they are black.
+            As we increase the max ray depth, more light reflects off of the spheres and we see more light pass through the glass sphere, and as it gets large enough,
+            to allow russian roulette to terminate rays, we get much more realistic images.
+        </p>
+        <div align="center">
+            <table style="width=100%">
+                <tr>
+                    <td align="middle">
+                    <img src="images/p1_mrd0.png" width="480px" />
+                    <figcaption align="middle">CB Spheres max ray 0</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                    <img src="images/p1_mrd1.png" width="480px" />
+                    <figcaption align="middle">CB Spheres max ray 1</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p1_mrd2.png" width="480px" />
+                        <figcaption align="middle">CB Spheres max ray 2</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p1_mrd3.png" width="480px" />
+                        <figcaption align="middle">CB Spheres max ray 3</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p1_mrd4.png" width="480px" />
+                        <figcaption align="middle">CB Spheres max ray 4</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p1_mrd5.png" width="480px" />
+                        <figcaption align="middle">CB Spheres max ray 5</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p1_mrd100.png" width="480px" />
+                        <figcaption align="middle">CB Spheres max ray 100</figcaption>
+                </tr>
+
+            </table>
+        </div>
+
+
+
+    <h2 align="middle">Part 2: Microfacet Material</h2>
+
+        <p>In this part, we add support for pathtracing with microfacet materials. These are materials with very small (hence micro)
+            features on the surface.
+            We use a function to evalue the BRDF of this material which takes into account the fresnel term, shadow masking term
+            and the normal distribution function. The normal distribution function we utilize is the Beckmann distribution
+            of how the normal vectors are distributed across the surface. Next the fresnel term we use here is different
+            from the one in the previous part. For microfacet functions we need air to conductor Fresnel terms,
+            which requires us to calculate a term for different wavelengths. We simplify this and calculate it for R, G, B
+            channels.
+        </p>
+
+        <p>In this first part we adjust the alpha values, which indicates the roughness of the surface. Notice
+        that as we increase the roughness, we go from a shiny reflective surface to a more diffuse surface. </p>
+        <div align="center">
+            <table style="width=100%">
+                <tr>
+                    <td align="middle">
+                        <img src="images/p2_a005.png" width="480px" />
+                        <figcaption align="middle">CBdragon_microfacet_au alpha 0.005 </figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p2_a05.png" width="480px" />
+                        <figcaption align="middle">CBdragon_microfacet_au alpha 0.05</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p2_a25.png" width="480px" />
+                        <figcaption align="middle">CBdragon_microfacet_au alpha 0.025</figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p2_a5.png" width="480px" />
+                        <figcaption align="middle">CBdragon_microfacet_au alpha 0.5</figcaption>
+                </tr>
+            </table>
+        </div>
+        <p>The original implementation is a cosine hemisphere sampling which does not properly work for the Beckmann
+            distribution. Thus we add importance sampling based on this distribution. In particular, we have two probability
+            pdfs, for theta and phi, and we can sample theta and phi from those functions respectively. Then we can return a
+            vector wi for the incident direction. Here is the copper bunny with both implementations. The cosine hemisphere
+            sampling is much noisier, because it doesn't reflect the actual distribution.
+        </p>
+
+        <div align="center">
+            <table style="width=100%">
+                <tr>
+                    <td align="middle">
+                        <img src="images/p2_cosine.png" width="480px" />
+                        <figcaption align="middle">CBbunny_microfacet_cu  cosine hemisphere </figcaption>
+                </tr>
+                <tr>
+                    <td align="middle">
+                        <img src="images/p2_importance.png" width="480px" />
+                        <figcaption align="middle">CBbunny_microfacet_cu  importance</figcaption>
+                </tr>
+            </table>
+        </div>
+
+        <p>In the dae files for each images, we can adjust the eta and k values of the material. Here is an bunny made with a nickel
+        material.
+        </p>
+        <div align="center">
+            <img src="images/p2_nickel.png" width="480px" />
+            <figcaption align="middle">Bunny New conductor material: Nickel </figcaption>
+
+        </div>
+
+
+
+    <h2 align="middle">Part 3: Environment Light</h2>
+
+    <p> In this part we add support for an environment light. This is a light that is infinitely far away and similar
+        to that of sun light in the real world. We use a texture map (phi, theta) to model the intensity of light in each direction.
+        This is then sampled to give radiance values for the image.
+
+    </p>
+
+
+
+    <p>For both sets of bunny images, the uniform sampling version is slightly more noisy than the one with importance
+    sampling. Given a direction, we convert this to coordinates and use interpolation to sample the spectrum at a certain point.
+    We first use a simple uniform sampling, by just taking a direction from the hemisphere with uniform probability.
+    However, this is not particularly efficient or effective, so we also implemented an importance sampling.
+    We do this by giving a probability to each pixel in the environment based on the flux passing through the solid
+    angle it represents. We utilize a three step approach. First we compute the pdf in the y direction, and can sample a row p(y).
+    Next we sample a pixel using the marginal distribution p(x|y). Finally we get a direction from this and can calculate the radiance and pdfs.
+
+    Here is how the probability looks for a texture map like field:
+    </p>
+
+    <img src="images/p3_probability_debug.png" width="480px" />
+    <figcaption align="middle">Probability Debug file </figcaption>
+
+    <img src="images/field.jpg" width="480px" />
+    <figcaption align="middle">Exr file of a field as jpg </figcaption>
+
+    <p>
+    For the unlight bunny, we notice that uniform sampling produces more noise than importance. The importance sampled
+    bunny has much fewer white pixels.
+    </p>
+    <div align="center">
+    <table style="width=100%">
+        <tr>
+            <td align="middle">
+                <img src="images/p3_uniform.png" width="480px" />
+                <figcaption align="middle">bunny_unlit  uniform sampling </figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p3_importance.png" width="480px" />
+                <figcaption align="middle">bunny_unlit importance sampling</figcaption>
+        </tr>
+    </table>
+    </div>
+
+    <p>
+        For the microfacet copper bunny, we similarly see more noise in uniform sampling.
+    </p>
+
+
+    <div align="center">
+        <table style="width=100%">
+            <tr>
+                <td align="middle">
+                    <img src="images/p3_micro_uniform.png" width="480px" />
+                    <figcaption align="middle">bunny_microfacet_cu_unlit  uniform sampling </figcaption>
+            </tr>
+            <tr>
+                <td align="middle">
+                    <img src="images/p3_micro_importance.png" width="480px" />
+                    <figcaption align="middle">bunny_microfacet_cu_unlit importance sampling</figcaption>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <h2 align="middle">Part 4: Depth of Field</h2>
+    <p> In this part, we use a thin lens model to achieve a depth of field look. This basically allows us to model
+        the refraction produced by the lens of a camera. Compared to the pinhole camera, due to the refraction, the angle
+        of the ray from the pixel to the point on the image changes as it passes the camera lens. This means that the point
+        actually is incident on the lens in a different location than the direct ray.
+    </p>
+
+    <p>Here we vary the focal distance of the image. As we increase the distance the dragon comes into focus, first
+    the front, the middle, and then only the back of the dragon.
+    </p>
+
+    <div align="center">
+    <table style="width=100%">
+        <tr>
+            <td align="middle">
+                <img src="images/p4_d325.png" width="480px" />
+                <figcaption align="middle">Focus stack 1 distance 3.25 </figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p4_d35.png" width="480px" />
+                <figcaption align="middle">Focus stack 2 distance 3.5</figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p4_d375.png" width="480px" />
+                <figcaption align="middle">Focus stack 3 distance 3.75</figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p4_d4.png" width="480px" />
+                <figcaption align="middle">Focus stack 4 distance 4</figcaption>
+        </tr>
+    </table>
+    </div>
+
+    <p>The apeture size also affects the depth of field. It allows us to vary how much of the image is in focus.
+    Here is the same image with several aperture sizes.
+    </p>
+
+    <div align="center">
+    <table style="width=100%">
+        <tr>
+            <td align="middle">
+                <img src="images/p4_b01.png" width="480px" />
+                <figcaption align="middle">Aperture size 2 radius = 0.001</figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p4_b005.png" width="480px" />
+                <figcaption align="middle">Aperture size 1 radius = 0.005</figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p4_b02.png" width="480px" />
+                <figcaption align="middle">Aperture size 3 radius = 0.02</figcaption>
+        </tr>
+        <tr>
+            <td align="middle">
+                <img src="images/p4_b05.png" width="480px" />
+                <figcaption align="middle">Aperture size 4 radius = 0.05</figcaption>
+        </tr>
+    </table>
+    </div>
+
+
+</div>
+</body>
+</html>
+
+
+
+

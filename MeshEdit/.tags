@@ -1,0 +1,154 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+html	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<html xmlns="http:\/\/www.w3.org\/1999\/xhtml" xml:lang="en" lang="en">$/;"	function	line:2
+head	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<head>$/;"	function	line:3
+style	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<style>$/;"	function	line:4
+title	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<title>CS 184 Mesh Editor<\/title>$/;"	function	line:18
+meta	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<meta http-equiv="content-type" content="text\/html; charset=utf-8" \/>$/;"	function	line:19
+link	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<link href="https:\/\/fonts.googleapis.com\/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">$/;"	function	line:20
+body	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<body>$/;"	function	line:24
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2019<\/h1>$/;"	function	line:26
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h1 align="middle">Project 2: Mesh Editor<\/h1>$/;"	function	line:27
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h2 align="middle">Aakash Parikh<\/h2>$/;"	function	line:28
+br	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<br><br>$/;"	function	line:30
+div	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<div>$/;"	function	line:32
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h2 align="middle">Overview<\/h2>$/;"	function	line:34
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:35
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h2 align="middle">Section I: Bezier Curves and Surfaces<\/h2>$/;"	function	line:44
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h3 align="middle">Part 1: Bezier curves with 1D de Casteljau subdivision<\/h3>$/;"	function	line:46
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:47
+div	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<div align="middle">$/;"	function	line:58
+table	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^  <table style="width=100%">$/;"	function	line:59
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:60
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:61
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1.png" align="middle" width="400px"\/>$/;"	function	line:62
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original points n = 6<\/figcaption>$/;"	function	line:63
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:65
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_1.png" align="middle" width="400px"\/>$/;"	function	line:66
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Step 1 n = 5<\/figcaption>$/;"	function	line:67
+br	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <br>$/;"	function	line:70
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:71
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:72
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_2.png" align="middle" width="400px"\/>$/;"	function	line:73
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Step 2: n = 4 .<\/figcaption>$/;"	function	line:74
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:76
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_3.png" align="middle" width="400px"\/>$/;"	function	line:77
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Step 3: n = 3.<\/figcaption>$/;"	function	line:78
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:81
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:82
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_4.png" align="middle" width="400px"\/>$/;"	function	line:83
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Step 4: n = 2 .<\/figcaption>$/;"	function	line:84
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:86
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_5.png" align="middle" width="400px"\/>$/;"	function	line:87
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Step 5: n = 1, Completed evaluation<\/figcaption>$/;"	function	line:88
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:91
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:92
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_6.png" align="middle" width="400px"\/>$/;"	function	line:93
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle"> Bezier curve<\/figcaption>$/;"	function	line:94
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:96
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part1\/part1_t.png" align="middle" width="400px"\/>$/;"	function	line:97
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Modifying the t value<\/figcaption>$/;"	function	line:98
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h3 align="middle">Part 2: Bezier surfaces with separable 1D de Casteljau subdivision<\/h3>$/;"	function	line:106
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:108
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part2.png" align="middle" width="600px"\/>$/;"	function	line:118
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">A teapot rendered using Bezier surfaces<\/figcaption>$/;"	function	line:119
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h2 align="middle">Section II: Sampling<\/h2>$/;"	function	line:122
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h3 align="middle">Part 3: Average normals for half-edge meshes<\/h3>$/;"	function	line:124
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:126
+div	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<div align="middle">$/;"	function	line:134
+table	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^  <table style="width=100%">$/;"	function	line:135
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:136
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:137
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part3\/part3_1.png" align="middle" width="400px"\/>$/;"	function	line:138
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image (GLSL shaders)<\/figcaption>$/;"	function	line:139
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:141
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part3\/part3_2.png" align="middle" width="400px"\/>$/;"	function	line:142
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image (mesh)<\/figcaption>$/;"	function	line:143
+br	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <br>$/;"	function	line:146
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:147
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:148
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part3\/part3_3.png" align="middle" width="400px"\/>$/;"	function	line:149
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Image after average normals (GLSL shaders)<\/figcaption>$/;"	function	line:150
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:152
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part3\/part3_4.png" align="middle" width="400px"\/>$/;"	function	line:153
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Image after average normals (mesh)<\/figcaption>$/;"	function	line:154
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h3 align="middle">Part 4: Half-edge flip<\/h3>$/;"	function	line:161
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:162
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part4\/part4_ex.png" align="middle" width="400px"\/>$/;"	function	line:171
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:172
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part4\/part4_1.png" align="middle" width="400px"\/>$/;"	function	line:179
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Original image<\/figcaption>$/;"	function	line:180
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part4\/part4_2.png" align="middle" width="400px"\/>$/;"	function	line:182
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Notice the flip on the face of the cube<\/figcaption>$/;"	function	line:183
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part4\/part4_3.png" align="middle" width="400px"\/>$/;"	function	line:185
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Flipping many edges can really change the image<\/figcaption>$/;"	function	line:186
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h3 align="middle">Part 5: Half-edge split<\/h3>$/;"	function	line:189
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:191
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part5\/part5_ex.png" align="middle" width="400px"\/>$/;"	function	line:197
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:199
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part5\/part5_1.png" align="middle" width="400px"\/>$/;"	function	line:203
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Original image<\/figcaption>$/;"	function	line:204
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part5\/part5_2.png" align="middle" width="400px"\/>$/;"	function	line:206
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Splitting edges on the face of the torus<\/figcaption>$/;"	function	line:207
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part5\/part5_3.png" align="middle" width="400px"\/>$/;"	function	line:209
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">torus after repeatedly flipping and splitting edges!<\/figcaption>$/;"	function	line:210
+h	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<h3 align="middle">Part 6: Loop subdivision for mesh upsampling<\/h3>$/;"	function	line:212
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:213
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part6\/part6_1.png" align="middle" width="400px"\/>$/;"	function	line:229
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Original Cube<\/figcaption>$/;"	function	line:230
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<img src="images\/part6\/part6_2.png" align="middle" width="400px"\/>$/;"	function	line:232
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<figcaption align="middle">Cube after 1 upsampling process<\/figcaption>$/;"	function	line:233
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:235
+div	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<div align="middle">$/;"	function	line:242
+table	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^  <table style="width=100%">$/;"	function	line:243
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:244
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:245
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_3.png" align="middle" width="400px"\/>$/;"	function	line:246
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image <\/figcaption>$/;"	function	line:247
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:249
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_5.png" align="middle" width="400px"\/>$/;"	function	line:250
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image with pre split edges<\/figcaption>$/;"	function	line:251
+br	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <br>$/;"	function	line:254
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:255
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:256
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_4.png" align="middle" width="400px"\/>$/;"	function	line:257
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image after upsampling <\/figcaption>$/;"	function	line:258
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:260
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_6.png" align="middle" width="400px"\/>$/;"	function	line:261
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Pre split image after upsampling<\/figcaption>$/;"	function	line:262
+p	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<p>$/;"	function	line:269
+div	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^<div align="middle">$/;"	function	line:275
+table	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^  <table style="width=100%">$/;"	function	line:276
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:277
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:278
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_7.png" align="middle" width="400px"\/>$/;"	function	line:279
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image<\/figcaption>$/;"	function	line:280
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:282
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_11.png" align="middle" width="400px"\/>$/;"	function	line:283
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Presplit image<\/figcaption>$/;"	function	line:284
+br	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <br>$/;"	function	line:287
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:288
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:289
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_8.png" align="middle" width="400px"\/>$/;"	function	line:290
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image with 1 upsampling<\/figcaption>$/;"	function	line:291
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:293
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_12.png" align="middle" width="400px"\/>$/;"	function	line:294
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Presplit image with 1 upsampling<\/figcaption>$/;"	function	line:295
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:298
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:299
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_9.png" align="middle" width="400px"\/>$/;"	function	line:300
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image with 2 upsampling<\/figcaption>$/;"	function	line:301
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:303
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_13.png" align="middle" width="400px"\/>$/;"	function	line:304
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Presplit image with 2 upsampling<\/figcaption>$/;"	function	line:305
+tr	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^    <tr>$/;"	function	line:308
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:309
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_10.png" align="middle" width="400px"\/>$/;"	function	line:310
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Original image with 5 upsampling<\/figcaption>$/;"	function	line:311
+td	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^      <td>$/;"	function	line:313
+img	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <img src="images\/part6\/part6_14.png" align="middle" width="400px"\/>$/;"	function	line:314
+figcaption	/Users/aakash/Documents/184/p2-meshedit-aparikh98/docs/index.html	/^        <figcaption align="middle">Presplit image with 5 upsamping<\/figcaption>$/;"	function	line:315

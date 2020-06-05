@@ -1,0 +1,107 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+html	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<html xmlns="http:\/\/www.w3.org\/1999\/xhtml" xml:lang="en" lang="en">$/;"	function	line:2
+head	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<head>$/;"	function	line:3
+style	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<style>$/;"	function	line:4
+title	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<title>Aakash Parikh  |  CS 184 Project 3-1<\/title>$/;"	function	line:12
+meta	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<meta http-equiv="content-type" content="text\/html; charset=utf-8" \/>$/;"	function	line:13
+link	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<link rel="stylesheet" type="text\/css" href="style.css" media="screen" \/>$/;"	function	line:14
+body	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<body>$/;"	function	line:16
+br	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<br \/>$/;"	function	line:17
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<h1 align="middle">Assignment 3: PathTracer<\/h1>$/;"	function	line:18
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <h2 align="middle">Aakash Parikh<\/h2>$/;"	function	line:19
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <h2 align="middle">Part 1: Ray Generation and Intersection<\/h2>$/;"	function	line:20
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^        <h3 align="middle">Sample Loop and Generating camera Rays<\/h3>$/;"	function	line:21
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^        <p>$/;"	function	line:22
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^        <h3 align="middle">Triangle and Sphere Intersection<\/h3>$/;"	function	line:29
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^        <p>$/;"	function	line:32
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^   <img src="images\/part1_mt.png" align="middle" width="400px"\/>$/;"	function	line:42
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^   <p>$/;"	function	line:43
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <p>$/;"	function	line:48
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part1_empty.png" align="middle" width="400px"\/>$/;"	function	line:51
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part1_gems.png" align="middle" width="400px"\/>$/;"	function	line:52
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part1_spheres.png" align="middle" width="400px"\/>$/;"	function	line:53
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <h2 align="middle">Part 2: Bounding Volume Hierarchy <\/h2>$/;"	function	line:55
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:56
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:64
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:71
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:78
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/Part2_cow.png" align="middle" width="400px"\/>$/;"	function	line:87
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Visualization of the cow takes 0.08% of original time <\/figcaption>$/;"	function	line:88
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part2_max.png" align="middle" width="400px"\/>$/;"	function	line:89
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Visualization of Max takes 0.0903s <\/figcaption>$/;"	function	line:90
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part2_lucy.png" align="middle" width="400px"\/>$/;"	function	line:91
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Visualization of Lucy takes 0.0810s <\/figcaption>$/;"	function	line:92
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <h2 align="middle">Part 3: Direct Illumination <\/h2>$/;"	function	line:94
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:95
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:101
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:107
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/Part3_bunny_hemisphere.png" align="middle" width="400px"\/>$/;"	function	line:116
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Bunny image calculated with uniform hemisphere <\/figcaption>$/;"	function	line:117
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:118
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part3_bunny_importance.png" align="middle" width="400px"\/>$/;"	function	line:126
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Bunny image calculated with importance sampling <\/figcaption>$/;"	function	line:127
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part3_dragon_importance.png" align="middle" width="400px"\/>$/;"	function	line:128
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Dragon image calculated with importance sampling <\/figcaption>$/;"	function	line:129
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:130
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <p>$/;"	function	line:138
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part3_l1_spheres.png" align="middle" width="400px"\/>$/;"	function	line:143
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Sphere image calculated 1 sample per light area <\/figcaption>$/;"	function	line:144
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part3_l4_spheres.png" align="middle" width="400px"\/>$/;"	function	line:145
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Sphere image calculated 4 samples per light area <\/figcaption>$/;"	function	line:146
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part3_l16_spheres.png" align="middle" width="400px"\/>$/;"	function	line:147
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Sphere image calculated 16 samples per light area <\/figcaption>$/;"	function	line:148
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <img src="images\/part3_l64_spheres.png" align="middle" width="400px"\/>$/;"	function	line:149
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^      <figcaption align="middle">Sphere image calculated 64 samples per light area <\/figcaption>$/;"	function	line:150
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <h2 align="middle">Part 4: Global Illumination <\/h2>$/;"	function	line:153
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <p>$/;"	function	line:154
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <p>$/;"	function	line:160
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_coil_s1024_m4.png" align="middle" width="400px"\/>$/;"	function	line:173
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Coil image calculated 1024 rays per pixel and max depth of 4  <\/figcaption>$/;"	function	line:174
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_gems_s1024_m4.png" align="middle" width="400px"\/>$/;"	function	line:175
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Gems image calculated 1024 rays per pixel and max depth of 4  <\/figcaption>$/;"	function	line:176
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <p>$/;"	function	line:177
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_indirect_spheres.png" align="middle" width="400px"\/>$/;"	function	line:180
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with only indirect lighting <\/figcaption>$/;"	function	line:181
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_direct_spheres.png" align="middle" width="400px"\/>$/;"	function	line:182
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with only direct lighting <\/figcaption>$/;"	function	line:183
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_both_spheres.png" align="middle" width="400px"\/>$/;"	function	line:184
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with direct and indirect lighting <\/figcaption>$/;"	function	line:185
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_wzero_spheres.png" align="middle" width="400px"\/>$/;"	function	line:186
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with direct, indirect and zero bounce lighting <\/figcaption>$/;"	function	line:187
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <p>$/;"	function	line:188
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_bunny_mr0.png" align="middle" width="400px"\/>$/;"	function	line:193
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Bunny image with depth 0 <\/figcaption>$/;"	function	line:194
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_bunny_mr1.png" align="middle" width="400px"\/>$/;"	function	line:195
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Bunny image with depth 1 <\/figcaption>$/;"	function	line:196
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_bunny_mr2.png" align="middle" width="400px"\/>$/;"	function	line:197
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Bunny image with depth 2 <\/figcaption>$/;"	function	line:198
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_bunny_mr3.png" align="middle" width="400px"\/>$/;"	function	line:199
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Bunny image with depth 3 <\/figcaption>$/;"	function	line:200
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_bunny_mr100.png" align="middle" width="400px"\/>$/;"	function	line:201
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Bunny image with depth 100 <\/figcaption>$/;"	function	line:202
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <p>$/;"	function	line:203
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s1.png" align="middle" width="400px"\/>$/;"	function	line:208
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 1 sample per pixel <\/figcaption>$/;"	function	line:209
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s2.png" align="middle" width="400px"\/>$/;"	function	line:210
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 2 sample per pixel <\/figcaption>$/;"	function	line:211
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s4.png" align="middle" width="400px"\/>$/;"	function	line:212
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 4 sample per pixel <\/figcaption>$/;"	function	line:213
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s8.png" align="middle" width="400px"\/>$/;"	function	line:214
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 8 sample per pixel <\/figcaption>$/;"	function	line:215
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s16.png" align="middle" width="400px"\/>$/;"	function	line:216
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 16 sample per pixel <\/figcaption>$/;"	function	line:217
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s64.png" align="middle" width="400px"\/>$/;"	function	line:218
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 64 sample per pixel <\/figcaption>$/;"	function	line:219
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <img src="images\/part4_sphere_s1024.png" align="middle" width="400px"\/>$/;"	function	line:220
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^    <figcaption align="middle">Sphere image with 1024 sample per pixel <\/figcaption>$/;"	function	line:221
+h	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^<h2 align="middle">Part 5: Adaptive Sampling <\/h2>$/;"	function	line:222
+p	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^  <p>$/;"	function	line:223
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^  <img src="images\/part5bunny.png" align="middle" width="400px"\/>$/;"	function	line:232
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^  <figcaption align="middle">Bunny image with adaptive sampling <\/figcaption>$/;"	function	line:233
+img	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^  <img src="images\/part5bunny_rate.png" align="middle" width="400px"\/>$/;"	function	line:234
+figcaption	/Users/aakash/Documents/184/p3-1-pathtracer-aparikh98/docs/index.html	/^  <figcaption align="middle">Sampling rate of each pixel <\/figcaption>$/;"	function	line:235

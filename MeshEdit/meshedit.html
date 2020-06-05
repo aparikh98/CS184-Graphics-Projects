@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Mesh Editor</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2019</h1>
+<h1 align="middle">Project 2: Mesh Editor</h1>
+<h2 align="middle">Aakash Parikh</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Overview</h2>
+    <p>
+        Often objects are graphically modelled as a mesh. In this project we explore how we can represent
+        a mesh using the Half Edge data structure, and develop many tools to edit mesh structures such as
+        splitting, flipping and subdividing meshes. We also look at Bezier curves and how we can evaluate
+        them using de Casteljau's methods. This project was especially interesting because it provided a
+        deeper look into the geometry of shapes, and was a good insight into how many object modelling
+        tools work today.
+    </p>
+
+<h2 align="middle">Section I: Bezier Curves and Surfaces</h2>
+
+<h3 align="middle">Part 1: Bezier curves with 1D de Casteljau subdivision</h3>
+    <p>
+        In this part of the project, we evaluated Bezier curves based on control points. The process for this was by
+        evaluating
+        the control points using de Casteljau's algorithm. A Bezier curve is a smooth curve that is parametrized by
+        these
+        control points. We can use the de Casteljau's algorithm to recursively evaluate the polynomials for the Bezier
+        curve.
+        Given n control points, the algorithm entails connecting adjacent points, and evaluating them at a parameter t.
+        This t (0,1) represents where on
+        the line we evaluate the edge. We can connect these n-1 points to get a closer approximation of the curve. We
+        can continue
+        this process until we evaluate a final point. The completed Bezier curve will pass through this last control
+        point.
+
+        Below is the evaluation of this algorithm on 6 control points:
+    </p>
+
+<div align="middle">
+  <table style="width=100%">
+    <tr>
+      <td>
+          <img src="images/part1/part1.png" align="middle" width="400px"/>
+          <figcaption align="middle">Original points n = 6</figcaption>
+      </td>
+      <td>
+          <img src="images/part1/part1_1.png" align="middle" width="400px"/>
+          <figcaption align="middle">Step 1 n = 5</figcaption>
+      </td>
+    </tr>
+    <br>
+    <tr>
+      <td>
+          <img src="images/part1/part1_2.png" align="middle" width="400px"/>
+          <figcaption align="middle">Step 2: n = 4 .</figcaption>
+      </td>
+        <td>
+            <img src="images/part1/part1_3.png" align="middle" width="400px"/>
+            <figcaption align="middle">Step 3: n = 3.</figcaption>
+        </td>
+    </tr>
+      <tr>
+          <td>
+              <img src="images/part1/part1_4.png" align="middle" width="400px"/>
+              <figcaption align="middle">Step 4: n = 2 .</figcaption>
+      </td>
+      <td>
+          <img src="images/part1/part1_5.png" align="middle" width="400px"/>
+          <figcaption align="middle">Step 5: n = 1, Completed evaluation</figcaption>
+      </td>
+    </tr>
+      <tr>
+          <td>
+              <img src="images/part1/part1_6.png" align="middle" width="400px"/>
+              <figcaption align="middle"> Bezier curve</figcaption>
+          </td>
+          <td>
+              <img src="images/part1/part1_t.png" align="middle" width="400px"/>
+              <figcaption align="middle">Modifying the t value</figcaption>
+          </td>
+      </tr>
+
+  </table>
+</div>
+
+
+<h3 align="middle">Part 2: Bezier surfaces with separable 1D de Casteljau subdivision</h3>
+
+    <p>
+        In part 1, we evaluate a single Bezier curve based on control points. In this section,
+        we extend this idea two Bezier surfaces which adds another dimension. Basically we can think
+        of this as computing the Bezier curve twice, once in each direction. As in part 1, we evaluate
+        each curve along one direction. Then we use each of these curves as the control point in the opposite
+        direction. Like part 1, we also have a parameter, we will use u and v, which are analogous to t in
+        part 1.
+
+        We can use this to now render mesh objects
+    </p>
+    <img src="images/part2.png" align="middle" width="600px"/>
+    <figcaption align="middle">A teapot rendered using Bezier surfaces</figcaption>
+
+
+<h2 align="middle">Section II: Sampling</h2>
+
+<h3 align="middle">Part 3: Average normals for half-edge meshes</h3>
+
+    <p>
+        This part involves using the average normals to provide better shading for a mesh rendering.
+        Here we take each vertex, and look at the area weighted average normal vector. What this means
+        is that for each vertex we take all the neighboring vertices (look at outgoing edges), and get a
+        re-normalized unit vector. The effect of this is we have a much more smooth, realistic looking image.
+
+        This tea pot shows how much smoother this process makes the rendering!
+    </p>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/part3/part3_1.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image (GLSL shaders)</figcaption>
+                </td>
+                <td>
+                    <img src="images/part3/part3_2.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image (mesh)</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/part3/part3_3.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Image after average normals (GLSL shaders)</figcaption>
+                </td>
+                <td>
+                    <img src="images/part3/part3_4.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Image after average normals (mesh)</figcaption>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+<h3 align="middle">Part 4: Half-edge flip</h3>
+    <p>
+        Now that we can render images using the half edge data structure, we can take a look at
+        editing them. One of these processes is the Half-edge flip. This involves, flipping the
+        edge that connects two adjacent triangles. The difficulty in doing this, is while a Half
+        edge data structure provides a lot of symmetry, it is a very connected data structure. this
+        means that even for a simple operation like this we have to keep track of a lot of pointers.
+
+        This image from CMU CS 15-462 shows how we need to relabel objects
+    </p>
+    <img src="images/part4/part4_ex.png" align="middle" width="400px"/>
+    <p>
+        The biggest challenge of this was that in renaming a lot of pointers, it is easy to miss some.
+        However, by carefully accounting each of these changes, it was fairly straightforward to debug.
+
+        Here you can see how the half edge flip affects an image:
+    </p>
+
+    <img src="images/part4/part4_1.png" align="middle" width="400px"/>
+    <figcaption align="middle">Original image</figcaption>
+
+    <img src="images/part4/part4_2.png" align="middle" width="400px"/>
+    <figcaption align="middle">Notice the flip on the face of the cube</figcaption>
+
+    <img src="images/part4/part4_3.png" align="middle" width="400px"/>
+    <figcaption align="middle">Flipping many edges can really change the image</figcaption>
+
+
+<h3 align="middle">Part 5: Half-edge split</h3>
+
+    <p>
+        Here we add another key editing feature for the half edge data structure. Here the half-edge split
+        takes a pair of triangles, and adds another edge further dividing it. This part was slightly more
+        tricky as compared to the previous one, since we are creating more mesh objects. However, by drawing
+        out which pointers should change, this process is also straightforward.
+    </p>
+    <img src="images/part5/part5_ex.png" align="middle" width="400px"/>
+
+    <p>
+        Let us look at the torus to see how spliting edges can be used to modify the shape:
+    </p>
+
+    <img src="images/part5/part5_1.png" align="middle" width="400px"/>
+    <figcaption align="middle">Original image</figcaption>
+
+    <img src="images/part5/part5_2.png" align="middle" width="400px"/>
+    <figcaption align="middle">Splitting edges on the face of the torus</figcaption>
+
+    <img src="images/part5/part5_3.png" align="middle" width="400px"/>
+    <figcaption align="middle">torus after repeatedly flipping and splitting edges!</figcaption>
+
+<h3 align="middle">Part 6: Loop subdivision for mesh upsampling</h3>
+    <p>
+        Here we implement upsampling for mesh objects. This is a very interesting process that leverages the previous
+        two
+        mesh transformations to make images smoother. The goal is for us to make the mesh out of smaller shapes. This is
+        done by
+        splitting each triangle into 4 smaller triangles. However, when we do this, the scaling is off, so we will also
+        update
+        the vertex positions. In order to implement this I followed this procedure:
+        1. Compute updated positions for existing vertices and edges, marking them as old.
+        2. Split every "old" edge, creating two "new" edges and a new vertex
+        3. Flip any edge that connects an "old" and a "new" edge
+        4. Update the position of the vertices
+
+        By breaking down this procedure into clear steps, it was possible to keep the debugging to a minimum. However,
+        one thing
+        I found was that while the implementation of flips and splits may look correct, doing hundreds of those
+        operations for
+        upsampling can bring out those problems.
+
+        Here is an example of how we can upsample a cube:
+    </p>
+    <img src="images/part6/part6_1.png" align="middle" width="400px"/>
+    <figcaption align="middle">Original Cube</figcaption>
+
+    <img src="images/part6/part6_2.png" align="middle" width="400px"/>
+    <figcaption align="middle">Cube after 1 upsampling process</figcaption>
+
+    <p>
+        This upsampling reduces the sharpness on some images. By presplitting the edges near these transitions, we can
+        reduce the effect of this. Notice the handle on top of the teapot. I split some edges along the handle, and as
+        we upsample the image, you can see that without the splitting it smooths out more than desired. By presplitting
+        them
+        we can lessen this effect.
+    </p>
+
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/part6/part6_3.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image</figcaption>
+                </td>
+                <td>
+                    <img src="images/part6/part6_5.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image with pre split edges</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/part6/part6_4.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image after upsampling</figcaption>
+                </td>
+                <td>
+                    <img src="images/part6/part6_6.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Pre split image after upsampling</figcaption>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <p>
+        In particular for the cube, we notice that upsampling the image brings out the original asymmetry.
+        If you notice the initial mesh diagram of the cube has only one edge through each face. By splitting that edge,
+        we can make the appearance of the cube remain symmetric:
+
+    </p>
+    <div align="middle">
+        <table style="width=100%">
+            <tr>
+                <td>
+                    <img src="images/part6/part6_7.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image</figcaption>
+                </td>
+                <td>
+                    <img src="images/part6/part6_11.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Presplit image</figcaption>
+                </td>
+            </tr>
+            <br>
+            <tr>
+                <td>
+                    <img src="images/part6/part6_8.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image with 1 upsampling</figcaption>
+                </td>
+                <td>
+                    <img src="images/part6/part6_12.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Presplit image with 1 upsampling</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="images/part6/part6_9.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image with 2 upsampling</figcaption>
+                </td>
+                <td>
+                    <img src="images/part6/part6_13.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Presplit image with 2 upsampling</figcaption>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="images/part6/part6_10.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Original image with 5 upsampling</figcaption>
+                </td>
+                <td>
+                    <img src="images/part6/part6_14.png" align="middle" width="400px"/>
+                    <figcaption align="middle">Presplit image with 5 upsamping</figcaption>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>

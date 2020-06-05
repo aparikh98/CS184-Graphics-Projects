@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+    div.padded {
+      padding-top: 0px;
+      padding-right: 100px;
+      padding-bottom: 0.25in;
+      padding-left: 100px;
+    }
+  </style>
+<title>Aakash Parikh  |  CS 184 Project 3-1</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body>
+<br />
+<h1 align="middle">Assignment 3: PathTracer</h1>
+    <h2 align="middle">Aakash Parikh</h2>
+    <h2 align="middle">Part 1: Ray Generation and Intersection</h2>
+        <h3 align="middle">Sample Loop and Generating camera Rays</h3>
+        <p>
+          In this first section, we create some samples for every pixel, and then trace a ray for each samples,
+          calculating the average spectrum of these rays. If we are only taking 1 sample per pixel, we cast a ray through
+          the center of the pixel, otherwise we get random samples within the pixel. Then we can evaluate the radiance
+          of the ray. We will discuss this implementation in later parts.
+          Next we convert this ray to the camera coordinate frame.
+        </p>
+        <h3 align="middle">Triangle and Sphere Intersection</h3>
+        The second portion of this part was to check if a ray intersected a primative shape.
+        We implemented this for two primiatives, triangles and spheres.
+        <p>
+        To check if a ray intersected a triangle, we utilize the Moller Trumbore algorithm. The
+        premise of this algorithm is very similar to calculating the barycentric coordinates we used
+        for rasterization. Specifically we can represent the intersection point as a barycentric coordinate
+        paramatrized by 3 variables b1, b2, b3 -> P = b3 *A + b2 * B + b3 * C. From the definition of a barycentric coordinate, it can be simplified
+        by setting w = 1 - b1 - b3. From the ray's perspective the intersection, P is equal to O + tD.
+        Through matrix algebra, we solve for b1, b2 and t as seen in the following slide. This t value is the
+        distance of the intersection from the origin of the triangle whihc allows us to determine
+        which is the closest intersecting primiative.
+       </p>
+   <img src="images/part1_mt.png" align="middle" width="400px"/>
+   <p>
+     Calculating the intersection of a sphere is done by checking where the equation of <thead>
+       radius interesects with the ray. This is simply done by solving (o + td-c)^2 - R^2 = 0. If we have
+       multiple intersections, we use the smallest value of t, since this indicates the first point of intersection.
+   </p>
+    <p>
+      We can utilize the above methods to implement normal shading for dae files:
+    </p>
+    <img src="images/part1_empty.png" align="middle" width="400px"/>
+    <img src="images/part1_gems.png" align="middle" width="400px"/>
+    <img src="images/part1_spheres.png" align="middle" width="400px"/>
+
+    <h2 align="middle">Part 2: Bounding Volume Hierarchy </h2>
+      <p>
+        In the above implementation, for each ray we must check every single primiative
+        object for an intersection. We can use a BVH data structure in order to prune
+        branches of primiatives to check. Each object has a bounding box which is a rough
+        estimate of where the object is. Moreover, this allows us to say if the ray does not
+        pass through this box, it won't pass through the object. We can also define this
+        bounding box for multiple objects.
+      </p>
+      <p>
+        We construct this BVH tree in a recursive manner. Given a set of primatives, we calculate the dimension in which the
+        extent bounding box is the largest. Then we compare the center of each primative with the midpoint of the centroid box in
+        this dimension only. If it is less than, it will be on the left side of the tree, otherwise it will be on the right side.
+        Each of these sets are inputs to recursive calls. As a base case, if the number of primatives are less than some small constant,
+        we store all the primatives in a list under that node.
+      </p>
+      <p>
+        The checking of intersection is done in a manner very similar to how we built the tree. Let us first consider the base case,
+        if we have a leaf node, we simply check each of the primatives in that node for intersection. This is as in part 1. If not a leaf
+        node, we must check if we intersect the bounding box created by all the primatives in the node. If it is, we check both children of the
+        node, otherwise we exit early. We have an intersection if any one primative value intersects and could exit once we have found an intersection,
+         but if we are recording the t value in an Intersection object, we must check all possible intersection primatives.
+      </p>
+      <p>
+         Without this modification, it was infeasible to render many images in a reasonable amount of time.
+         For one such object, the cow, our naive implementation took 113.1537 seconds, and traced an average of
+         1056.038956 intersections per ray. Compare that to only 0.0880s with 2.798103 intersection tests per ray.
+         This is less than 8 one thousandths of the original time, because we are able to quickly eliminate large
+         portions of the primatives, and perform much fewer costly intersection checks. As we discussed in part 1,
+         checking a triangle implementation required many operations, while checking an intersection with a bounding box
+         is very simple.
+      </p>
+      <img src="images/part2_cow.png" align="middle" width="400px"/>
+      <figcaption align="middle">Visualization of the cow takes 0.08% of original time </figcaption>
+      <img src="images/part2_max.png" align="middle" width="400px"/>
+      <figcaption align="middle">Visualization of Max takes 0.0903s </figcaption>
+      <img src="images/part2_lucy.png" align="middle" width="400px"/>
+      <figcaption align="middle">Visualization of Lucy takes 0.0810s </figcaption>
+      </p>
+      <h2 align="middle">Part 3: Direct Illumination </h2>
+      <p>
+        Direct lighting refers to the illumination of the scene done directly by the light.
+        ie, without considering reflections and other bounces. Here we implement two methods
+        to calculate this illumination, and compare the two.
+      </p>
+
+      <p>
+        Before we discuss these two methods, we also implemented the calculation of the BSDF f and sample_f
+        functions for a Diffuse surface. For the f function, we can simply use reflectance/pi. For the sample_f,
+        we must use the sampler to get a sample to be assigned to wi, in addition to the f function.
+      </p>
+
+      <p>
+        First let us look at estimate_direct_lighting_hemisphere(). This function
+        begins by looking at each pixel, and then generating samples from a uniform hemisphere
+        around the point of interest. For each ray reaching a light source, we calculate the
+        irradiance from the incoming radiance of light sources using the BSDF and a cosine term.
+        We take a weighted average of these samples using the PDF, and then are able to correctly calculate the illumination.
+        Here are a few images rendered with this hemisphere method. Notice that this is
+        a rather noisy method:
+      </p>
+      <img src="images/part3_bunny_hemisphere.png" align="middle" width="400px"/>
+      <figcaption align="middle">Bunny image calculated with uniform hemisphere </figcaption>
+      <p>
+        Next we approach this from the opposite perspective: For every light source, we
+        take some samples of the light source, and calculate the incoming radiance from these sampled directions.
+        We convert this to irradiance using by using the BSDF and a cosine term.
+        We sum up these using a weighted average calculated using the pdf of the probability distribution
+        of our sampler.
+        Here are some images using this method:
+      </p>
+      <img src="images/part3_bunny_importance.png" align="middle" width="400px"/>
+      <figcaption align="middle">Bunny image calculated with importance sampling </figcaption>
+      <img src="images/part3_dragon_importance.png" align="middle" width="400px"/>
+      <figcaption align="middle">Dragon image calculated with importance sampling </figcaption>
+      <p>
+        Overall, for the same number of total samples, it is clear that importance light
+        sampling performs much better than the uniform hemisphere sampling. In part this is due
+        by us throwing out many more of the random samples in hemisphere sampling that do not hit any lights.
+        This means that for the same amount of work, we get many more good samples in the importance method.
+
+      </p>
+
+      <p>
+        If we look at the number of samples per area light, we notice that the quality
+        significantly improves as we increase this number. By taking more samples, we reduce
+        the variance of our random variables, and we notice a lot less noise.
+      </p>
+      <img src="images/part3_l1_spheres.png" align="middle" width="400px"/>
+      <figcaption align="middle">Sphere image calculated 1 sample per light area </figcaption>
+      <img src="images/part3_l4_spheres.png" align="middle" width="400px"/>
+      <figcaption align="middle">Sphere image calculated 4 samples per light area </figcaption>
+      <img src="images/part3_l16_spheres.png" align="middle" width="400px"/>
+      <figcaption align="middle">Sphere image calculated 16 samples per light area </figcaption>
+      <img src="images/part3_l64_spheres.png" align="middle" width="400px"/>
+      <figcaption align="middle">Sphere image calculated 64 samples per light area </figcaption>
+
+
+    <h2 align="middle">Part 4: Global Illumination </h2>
+    <p>
+      In the previous part, we only looked at illumination as a direct result of a light source.
+      However, we note that much of the light we see has actually bounced off of another object.
+      Let us define: zero_bounce_radiance to be just the get_emission function at each intersection, and
+      one_bounce_radiance to be either of the direct lighting methods described in part 3.
+    </p>
+    <p>
+      at_least_one_bounce_radiance is implemented using a recursive method. An overview of the method I implemented
+      is as follows: First, calculate the direct illumination of the point. This is done using one of
+      the methods from part 3. Next, we check if we should be looking at additional bounces. This
+      is calculated using a Russian Roulette method, where if our depth is the max_ray_depth, we continue with probability 1,
+      otherwise if the depth is > 1 we continue with a probability p (arbitrarily set to 0.6).
+      If we continue, create a new ray, by taking a sample from the surface BSDF. We create a new ray skewed
+      slightly from the hit point,using the transformed (to world) direction returned from the sampling method
+       and recursively check the incoming radiance of this ray. Note that we lower the ray depth by 1 in each
+       recursion. We will accumulate the bounce's outgoing radiance using a scaling by the BSDF, pdf, a cosine term,
+       and probability p used for the Russian Roulette. This implementation gives us a much more natural image as
+       seen in the following.
+    </p>
+    <img src="images/part4_spheres_1024.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image calculated 1024 rays per pixel and max depth of 4  </figcaption>
+    <img src="images/part4_bunny_1024.png" align="middle" width="400px"/>
+    <figcaption align="middle">Bunny image calculated 1024 rays per pixel and max depth of 4  </figcaption>
+    <p>
+      In order to see the effect of this more closely, let us look at the same image with various combinations of lighting:
+    </p>
+    <img src="images/part4_indirect_spheres.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with only indirect lighting </figcaption>
+    <img src="images/part4_direct_spheres.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with only direct lighting </figcaption>
+    <img src="images/part4_both_spheres.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with direct and indirect lighting </figcaption>
+    <img src="images/part4_wzero_spheres.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with direct, indirect and zero bounce lighting </figcaption>
+    <p>
+      We can also compare the effect of additional bounces on an image. To the eye, the difference between the first few
+      bounces is very clear, but after a certain point, there is no visual improvement. Additionally, because of
+      russian roulette, there is a very low probability we even reach a large depth.
+    </p>
+    <img src="images/part4_bunny_mr0.png" align="middle" width="400px"/>
+    <figcaption align="middle">Bunny image with depth 0 </figcaption>
+    <img src="images/part4_bunny_mr1.png" align="middle" width="400px"/>
+    <figcaption align="middle">Bunny image with depth 1 </figcaption>
+    <img src="images/part4_bunny_mr2.png" align="middle" width="400px"/>
+    <figcaption align="middle">Bunny image with depth 2 </figcaption>
+    <img src="images/part4_bunny_mr3.png" align="middle" width="400px"/>
+    <figcaption align="middle">Bunny image with depth 3 </figcaption>
+    <img src="images/part4_bunny_mr100.png" align="middle" width="400px"/>
+    <figcaption align="middle">Bunny image with depth 100 </figcaption>
+    <p>
+      Like with the above approaches, we also get better rendered views as we increase the sample per pixel rates.
+      These images had 4 light ray samples, and varying sample per pixel rates. For each of the tested rates,
+      there is a clear improvement in the quality of image.
+    </p>
+    <img src="images/part4_sphere_s1.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 1 sample per pixel </figcaption>
+    <img src="images/part4_sphere_s2.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 2 sample per pixel </figcaption>
+    <img src="images/part4_sphere_s4.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 4 sample per pixel </figcaption>
+    <img src="images/part4_sphere_s8.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 8 sample per pixel </figcaption>
+    <img src="images/part4_sphere_s16.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 16 sample per pixel </figcaption>
+    <img src="images/part4_sphere_s64.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 64 sample per pixel </figcaption>
+    <img src="images/part4_sphere_s1024.png" align="middle" width="400px"/>
+    <figcaption align="middle">Sphere image with 1024 sample per pixel </figcaption>
+<h2 align="middle">Part 5: Adaptive Sampling </h2>
+  <p>
+    In the previous parts, we did a lot of random sampling. Increasing the number of samples
+    per pixel helps us reduce the noise in each pixel. Importantly, not each pixel takes the same
+    amount of samples in order to converge to an acceptable value. For each pixel, we record the
+    standard deviation and variance of the samples we have. More precisely, we store the sum of the sample's illuminations, and
+    the sum of the squares of each sample's illumination, which we periodically use to calculate statistics, of the mean and the variance.
+    We then check if our current estimate of the illumination is within a small enough margin with high confidence.
+    We notice, that for an image, this results in terminating early for sections of the image, without losing quality.
+  </p>
+  <img src="images/part5bunny.png" align="middle" width="400px"/>
+  <figcaption align="middle">Bunny image with adaptive sampling </figcaption>
+  <img src="images/part5bunny_rate.png" align="middle" width="400px"/>
+  <figcaption align="middle">Sampling rate of each pixel </figcaption>
+
+
+
+</body>
+</html>
