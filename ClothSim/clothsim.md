@@ -14,10 +14,10 @@ Below is an example of how a cloth behaves with these springs in place. Note tha
 
 | Only Shearing Constraints | Without Shearing Constraints|
 | -------- | -------- |
-| ![](https://i.imgur.com/M6W0Zrr.png =500x)     |  ![](https://i.imgur.com/PIcc2HC.png =500x)|
+| ![](https://i.imgur.com/M6W0Zrr.png)     |  ![](https://i.imgur.com/PIcc2HC.png)|
 
 #### All Spring Constants
-![](https://i.imgur.com/JdL3gNu.png =500x)
+![](https://i.imgur.com/JdL3gNu.png)
 
 ## Part 2 Simulation via numerical integration
 
