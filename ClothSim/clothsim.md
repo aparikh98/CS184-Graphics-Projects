@@ -152,8 +152,8 @@ I found that for the particular texture I used, the coarseness did not have too 
 #### Mirror Shading 
 This is done by using the vector from the camera pos to the surface position and reflecting it over the normal to get the incoming direction. Then we sample from the environment map. 
 
- ![](https://i.imgur.com/AqAUMId.png =x325) *Cloth above sphere*
- ![](https://i.imgur.com/Vm550VD.png =x325) *Cloth falling on sphere*
- ![](https://i.imgur.com/IFXqkOB.jpg =x325) *Cloth over sphere*
+ ![](https://i.imgur.com/AqAUMId.png) *Cloth above sphere*
+ ![](https://i.imgur.com/Vm550VD.png) *Cloth falling on sphere*
+ ![](https://i.imgur.com/IFXqkOB.jpg) *Cloth over sphere*
 
 
