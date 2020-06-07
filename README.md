@@ -1,4 +1,4 @@
-# CS184 Graphics Projects
+# CS184 Graphics Projects Spring 2019
 
 
 [Rasterizer](https://htmlpreview.github.io/?https://github.com/aparikh98/CS184-Graphics-Projects/blob/master/Rasterizer/rasterizer.html): This project involves many tools required to rasterize images in order to render vector graphics. We begin with rendering shapes as simple triangles, supersampling for antialiasing, and transforming these triangles. The project also includes sampling and using Barycentric coordinates for texture mapping. We have implemented bilinear and trilinear sampling.
