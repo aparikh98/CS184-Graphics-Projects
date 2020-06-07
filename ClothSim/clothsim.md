@@ -55,7 +55,7 @@ Finally, we ensure that our position changes are not overly drastic. We do this 
 
 #### 4 pinned corner exampe
 
- ![](https://i.imgur.com/YeaQwIQ.png =500x)
+ ![](https://i.imgur.com/YeaQwIQ.png)
 
 
 ## Part 3
@@ -69,13 +69,13 @@ Intersection with a sphere is fairly easy to do, as we can calcualte the distanc
 
 | Default ks = 5,000 | ks = 500 | ks = 50,000 |
 | -------- | -------- | -------- |
-| ![](https://i.imgur.com/3ohgLZk.png =500x)     | ![](https://i.imgur.com/q9K9fDc.png =500x)     | ![](https://i.imgur.com/B0ER0fS.png =500x)     |
+| ![](https://i.imgur.com/3ohgLZk.png)     | ![](https://i.imgur.com/q9K9fDc.png)     | ![](https://i.imgur.com/B0ER0fS.png)     |
 
 #### Cloth over a plane 
 
 It is slightly more complicated to tell if a cloth has passed through a plane. For this we draw a vector from the `old_position` to the new `position` and check if this vector crosses the plane. In particular we find some scalar *t* such that the projection of *vector_origin + t * vector_dir* on the normal vector of the plane is equal to 0. If this occurs between t = [0,1], it happened in the last time step and we need to apply a correction.
 
-![](https://i.imgur.com/uee4snN.png =500x)
+![](https://i.imgur.com/uee4snN.png)
 
 ## Part 4 Handling self-collisions
 In the previous part we handled collisions with external objects, in this part we handle self collisions. In order to do this in an efficient manner, we must make sure we are not checking every single pair of point masses. We do this by using a hash to bucket each of the points based on the general region they are in. Then within each of these buckets we collide wiht a pair of point masses. If they are within 2 * `thickness` appart, we add a correction to separate them. 
